@@ -11,11 +11,11 @@ class SlotMachine:
         self.root.title("Slot Machine")
 
         # Icon image
-        self.icon = tk.PhotoImage(file="images\\icon.png")
+        self.icon = tk.PhotoImage(file="wild_west_images\\background.png")
         self.root.iconphoto(False, self.icon)
 
         # Background image
-        self.background_image = tk.PhotoImage(file="images\\background.png")
+        self.background_image = tk.PhotoImage(file="wild_west_images\\background.png")
 
         # Adjust window size to match background image
         self.root.geometry(f"{self.background_image.width()}x{self.background_image.height()}")
@@ -36,13 +36,13 @@ class SlotMachine:
         self.canvas.create_image(0, 0, anchor="nw", image=self.background_image)
 
         # Images for the slots
-        self.images = [tk.PhotoImage(file=f"images\\image{i}.png") for i in range(1, 11)]
-        self.compressed_images_bottom = [tk.PhotoImage(file=f"images\\image{i}_.png") for i in range(1, 11)]
-        self.compressed_images_top = [tk.PhotoImage(file=f"images\\image{i}_.png") for i in range(1, 11)]
+        self.images = [tk.PhotoImage(file=f"wild_west_images\\{i}.png") for i in range(1, 11)]
+        self.compressed_images_bottom = [tk.PhotoImage(file=f"wild_west_images\\{i}.1.png") for i in range(1, 11)]
+        self.compressed_images_top = [tk.PhotoImage(file=f"wild_west_images\\{i}.1.png") for i in range(1, 11)]
 
-        self.win_image = tk.PhotoImage(file="images\\win.png")
-        self.jackpot_image = tk.PhotoImage(file="images\\jackpot.png")
-        self.lose_image = tk.PhotoImage(file="images\\loss.png")
+        self.win_image = tk.PhotoImage(file="wild_west_images\\victory.png")
+        self.jackpot_image = tk.PhotoImage(file="wild_west_images\\jackpot.png")
+        self.lose_image = tk.PhotoImage(file="wild_west_images\\lose.png")
 
         # Slot positions
         self.slot_positions = [580, 1080, 1580]  # X-coordinates for the three slots
@@ -77,7 +77,7 @@ class SlotMachine:
         self.jackpot_chance = 0.001
 
         # Start button with image
-        self.start_button_image = tk.PhotoImage(file="images\\start_button.png").subsample(4, 4)
+        self.start_button_image = tk.PhotoImage(file="wild_west_images\\start_button.png").subsample(4, 4)
         self.start_button = tk.Button(self.root,
                                       image=self.start_button_image,
                                       command=self.start_game,
@@ -204,4 +204,4 @@ if __name__ == "__main__":
     app = SlotMachine(root)
     root.mainloop()
 
-#python -m nuitka main.py --follow-imports --standalone --jobs=4 --onefile --windows-icon-from-ico=images/icon.png --windows-console-mode=disable --enable-plugin=tk-inter
+#python -m nuitka main.py --follow-imports --standalone --jobs=4 --onefile --windows-icon-from-ico=wild_west_images/background.png --windows-console-mode=disable --enable-plugin=tk-inter
