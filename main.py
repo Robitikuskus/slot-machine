@@ -55,7 +55,7 @@ class SlotMachine:
 
         # Sounds
         mixer.init()
-        self.win_sound = mixer.Sound("sounds\\jackpot.mp3")
+        self.win_sound = mixer.Sound("sounds\\victory.mp3")
         self.jackpot_sound = mixer.Sound("sounds\\jackpot.mp3")
 
         self.loss_sound = [mixer.Sound("sounds\\plankton_loss.mp3"),
@@ -165,9 +165,9 @@ class SlotMachine:
     def check_result(self):
         time.sleep(1)
         if self.current_images[0] == self.current_images[1] == self.current_images[2]:
-            if self.current_images[0] == 10:
-                self.show_fullscreen_image(self.jackpot_image)
+            if self.current_images[0] == len(self.images) - 1:
                 self.play_sound_in_thread(self.jackpot_sound)
+                self.show_fullscreen_image(self.jackpot_image)
             else:
                 self.play_sound_in_thread(self.win_sound)
                 self.show_fullscreen_image(self.win_image)
