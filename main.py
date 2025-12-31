@@ -73,7 +73,7 @@ class SlotMachine:
         self.current_images = [0, 0, 0]  # Current slot images
         self.running = [True, True, True]  # Animation status for each slot
         self.last_images = self.current_images.copy()
-        self.win_chance = 0.05
+        self.win_chance = 0.20
         self.jackpot_chance = 0.001
 
         # Start button with image
